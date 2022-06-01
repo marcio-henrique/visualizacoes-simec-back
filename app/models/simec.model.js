@@ -8,10 +8,13 @@ const Simec = function (simec) {};
 // group by edital ;
 
 Simec.getGroupedBy = (query, result) => {
+  const count = query.count;
+  delete query.count;
+
   const group = query.group;
   delete query.group;
 
-  let sqlQuery = `SELECT ${group} title, COUNT(DISTINCT(id)) value FROM dados_simec `;
+  let sqlQuery = `SELECT ${group} title, COUNT(DISTINCT(${count})) value FROM dados_simec `;
 
   if(Object.keys(query).length > 0) {
     sqlQuery += `WHERE `;
