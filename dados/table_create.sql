@@ -1,0 +1,33 @@
+-- simec.dados_simec definition
+
+CREATE TABLE `dados_simec` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `row` longtext,
+  `id_red` longtext,
+  `edital` longtext,
+  `cnpj_editora` longtext,
+  `editora` longtext,
+  `codigo_colecao` longtext,
+  `colecao` longtext,
+  `codigo_volume` longtext,
+  `volume` longtext,
+  `componente` longtext,
+  `serie` longtext,
+  `formato` longtext,
+  `exemplar` longtext,
+  `tipo_arquivo` longtext,
+  `arquivo` longtext,
+  `nome_arquivo` longtext,
+  `extensao_arquivo` longtext,
+  `deve_ser_baixado` longtext,
+  `baixado` longtext,
+  `caminho_local` longtext,
+  `extensao_arquivo_header` longtext,
+  `integridade` longtext,
+  `size` longtext,
+  `zipped_size` longtext,
+  `id_zip` longtext,
+  `tipo` longtext,
+  `vazio` longtext,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14520 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
