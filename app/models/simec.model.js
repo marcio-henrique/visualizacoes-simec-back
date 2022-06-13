@@ -37,6 +37,8 @@ Simec.getGroupedBy = (query, result) => {
 
   sqlQuery += ` group by ${group}`;
 
+  sqlQuery += ` order by value DESC`;
+
   console.log(sqlQuery);
 
   sql.query(sqlQuery, (err, res) => {

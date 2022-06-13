@@ -6,7 +6,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: process.env.PORT || "http://localhost:8081"
 };
 app.use(cors(corsOptions));
 // parse requests of content-type - application/json
