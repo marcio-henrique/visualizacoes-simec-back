@@ -56,7 +56,7 @@ Simec.getCount = (query, result) => {
   const count = query.count;
   delete query.count;
 
-  let sqlQuery = `SELECT COUNT(DISTINCT(${count})) value FROM dados_simec `;
+  let sqlQuery = `SELECT ${count} title, COUNT(DISTINCT(${count})) value FROM dados_simec `;
 
   if(Object.keys(query).length > 0) {
     sqlQuery += `WHERE `;
