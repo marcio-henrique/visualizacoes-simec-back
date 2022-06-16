@@ -14,7 +14,7 @@ Simec.getGroupedBy = (query, result) => {
   const group = query.group;
   delete query.group;
 
-  let sqlQuery = `SELECT ${group} title, COUNT(DISTINCT(${count})) value FROM dados_simec `;
+  let sqlQuery = `SELECT ${group} title, COUNT(DISTINCT(${count})) value, '${group}' as 'group' FROM dados_simec `;
 
   if(Object.keys(query).length > 0) {
     sqlQuery += `WHERE `;
@@ -27,7 +27,11 @@ Simec.getGroupedBy = (query, result) => {
       sqlQuery += `${key} `;
       if(Array.isArray(value)) {
         sqlQuery += `IN (${ "'" + value.join("','") + "'"}) `;
-      }else {
+      } else if (value.includes('[')) {
+        let valueArray = JSON.parse(value);
+        sqlQuery += `IN (${ "'" + valueArray.join("','") + "'"}) `;
+      }
+      else {
         sqlQuery += `= '${value}' `;
       }
       console.log(`${key}: ${value}`);
